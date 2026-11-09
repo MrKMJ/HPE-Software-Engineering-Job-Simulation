@@ -25,13 +25,13 @@ curl -X POST http://localhost:8080/employees \
 
 ## Project structure
 ```
-src/main/java/com/hpe/employees/
-├── EmployeesApplication.java   # Spring Boot entry point
+src/main/java/com/example/restservice/
+├── RestServiceApplication.java # Spring Boot entry point
 ├── Employee.java               # Model (snake_case JSON, bean validation)
 ├── Employees.java              # {"Employees": [...]} wrapper
 ├── EmployeeManager.java        # In-memory store with seed data
 └── EmployeeController.java     # GET and POST /employees
-src/test/java/com/hpe/employees/
+src/test/java/com/example/restservice/
 ├── EmployeeManagerTest.java        # Store behaviour
 ├── EmployeeControllerTest.java     # Controller with a Mockito mock
 └── EmployeeControllerWebTest.java  # MockMvc: routing, JSON, validation, status codes

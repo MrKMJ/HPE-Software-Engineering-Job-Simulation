@@ -1,4 +1,4 @@
-package com.hpe.employees;
+package com.example.restservice;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

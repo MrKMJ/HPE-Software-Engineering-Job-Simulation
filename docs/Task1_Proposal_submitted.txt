@@ -1,0 +1,29 @@
+Proposal: Employee Management RESTful Web Service
+
+Objective
+Build a RESTful web service that manages a list of employee records for internal applications. It will be written in Java Spring Boot and store its data on a private cloud through HPE GreenLake.
+
+Tools
+Spring Boot gives an embedded Tomcat server, automatic JSON conversion (Jackson), bean validation and strong testing support (JUnit 5, Mockito, MockMvc), so the service runs as a standalone application with minimal configuration. HPE GreenLake will host the database (for example PostgreSQL through Spring Data JPA) and the application on private cloud infrastructure. This keeps employee data inside the company's own environment while giving cloud-style elasticity, pay-per-use pricing, monitoring and backup.
+
+Data model
+Each Employee has employee_id (unique), first_name, last_name, email and title. All fields are required and the email format is validated. An Employees wrapper returns the list as {"Employees": [...]}.
+
+Design
+The service has three layers:
+1. Model: the Employee and Employees classes.
+2. Data access: an EmployeeManager / JPA repository that reads and writes the GreenLake-hosted database.
+3. Controller: an EmployeeController (@RestController) that maps HTTP requests to repository calls.
+This separation lets the storage change without touching the API.
+
+Endpoints
+- GET /employees returns the full list (200 OK).
+- POST /employees adds one employee from a JSON body (201 Created with a Location header; 400 if invalid; 409 if the employee_id already exists).
+- PUT /employees/{employee_id} updates one employee (200 OK; 404 if not found).
+- DELETE /employees/{employee_id} removes one employee (204 No Content; 404 if not found).
+
+Quality and security
+Unit tests mock the repository with Mockito, and MockMvc tests check routes, JSON fields and status codes. CI runs the tests on every push. The API will sit behind Spring Security with OAuth2/JWT, use HTTPS, and log changes for auditing.
+
+Delivery plan
+First the model and GET endpoint, then POST, then PUT and DELETE, then tests, and finally deployment to GreenLake with a container image and CI/CD pipeline.

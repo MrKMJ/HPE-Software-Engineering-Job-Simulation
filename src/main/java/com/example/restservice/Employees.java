@@ -1,4 +1,4 @@
-package com.hpe.employees;
+package com.example.restservice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

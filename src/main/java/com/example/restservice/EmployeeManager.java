@@ -1,4 +1,4 @@
-package com.hpe.employees;
+package com.example.restservice;
 
 import org.springframework.stereotype.Repository;
 
@@ -15,9 +15,9 @@ public class EmployeeManager {
 
     public EmployeeManager() {
         List<Employee> list = employees.getEmployeeList();
-        list.add(new Employee("1", "Prem", "Tiwari", "chapradreams@gmail.com", "Software Engineer"));
-        list.add(new Employee("2", "Vikash", "Kumar", "abc@gmail.com", "Product Manager"));
-        list.add(new Employee("3", "Ritesh", "Ojha", "asdjf@gmail.com", "Data Scientist"));
+        list.add(new Employee("1", "Prem", "Tiwari", "prem.tiwari@example.com", "Software Engineer"));
+        list.add(new Employee("2", "Vikash", "Kumar", "vikash.kumar@example.com", "Product Manager"));
+        list.add(new Employee("3", "Ritesh", "Ojha", "ritesh.ojha@example.com", "Data Scientist"));
         list.add(new Employee("4", "Sarah", "Lee", "sarah.lee@example.com", "Cloud Architect"));
     }
 

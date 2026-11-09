@@ -8,8 +8,8 @@
     <version>3.3.5</version>
     <relativePath/>
   </parent>
-  <groupId>com.hpe</groupId>
-  <artifactId>employees-rest-service</artifactId>
+  <groupId>com.example</groupId>
+  <artifactId>rest-service</artifactId>
   <version>1.0.0</version>
   <name>employees-rest-service</name>
   <description>RESTful employee management service (HPE Software Engineering job simulation)</description>
